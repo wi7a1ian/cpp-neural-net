@@ -1,0 +1,44 @@
+#ifndef SIMULATOR_COMMON_FUZZY_CAT_H
+#define SIMULATOR_COMMON_FUZZY_CAT_H
+
+// A macro to disallow the copy constructor and operator= functions
+// This should be used in the private: declarations for a class
+#ifndef DISALLOW_COPY_AND_ASSIGN
+#define DISALLOW_COPY_AND_ASSIGN(TypeName) \
+  TypeName(const TypeName&);               \
+  void operator=(const TypeName&)
+#endif // DISALLOW_COPY_AND_ASSIGN
+
+namespace nns {
+namespace fuzzy {
+
+class FuzzyCategory {
+public:
+  FuzzyCategory(){};
+  explicit FuzzyCategory(const char* pName);
+  ~FuzzyCategory(){};
+  
+  void SetValues(float h, float m, float l);
+  float ComputeShare(const float &rInput);
+
+  void set_name(const char *pName);
+  char* name();
+  //const char* get_name();
+
+  float low_value() const;
+  float mid_value() const;
+  float high_value() const;
+
+
+protected:
+private:
+  char name_[30];
+  float low_value_, high_value_, mid_value_;
+
+  DISALLOW_COPY_AND_ASSIGN(FuzzyCategory);
+};
+
+} // namespace fuzzy
+} // namespace nns
+
+#endif // SIMULATOR_COMMON_FUZZY_CAT_H

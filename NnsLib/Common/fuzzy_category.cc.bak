@@ -1,0 +1,55 @@
+// program to fuzzify data
+#include <iostream>
+#include "time.h"
+#include "fuzzy_category.h"
+
+namespace nns {
+namespace fuzzy {
+
+FuzzyCategory::FuzzyCategory(const char* pName) {
+	strcpy(name_, pName);
+}
+
+void FuzzyCategory::set_name(const char* pName) {
+	strcpy(name_, pName);
+}
+char* FuzzyCategory::name() {
+	return name_;
+}
+
+void FuzzyCategory::SetValues(float h, float m, float l) {
+	high_value_ = h;
+	mid_value_ = m;
+	low_value_ = l;
+}
+float FuzzyCategory::low_value() const {
+	return low_value_;
+}
+float FuzzyCategory::mid_value() const {
+	return mid_value_;
+}
+float FuzzyCategory::high_value() const {
+	return high_value_;
+}
+float FuzzyCategory::ComputeShare(const float &rInput) {
+	float output;
+	float midlow, highmid;
+	midlow = mid_value_ - low_value_;
+	highmid = high_value_ - mid_value_;
+	// if outside the range, then output=0
+	if ((rInput <= low_value_) || (rInput >= high_value_))
+		output = 0;
+	else {
+		if (rInput > mid_value_)
+			output = (high_value_-rInput)/highmid;
+		else if (rInput == mid_value_)
+			output=1.0;
+		else
+			output = (rInput-low_value_)/midlow;
+	}
+	return output;
+}
+
+
+} // namespace fuzzy
+} // namespace nns
