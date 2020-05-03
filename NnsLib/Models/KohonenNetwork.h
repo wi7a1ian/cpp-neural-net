@@ -18,7 +18,7 @@ namespace NNS
 			KohonenNetwork(const KohonenNetwork&) = delete;
 			KohonenNetwork& operator=(const KohonenNetwork&) = delete;
 
-			bool ComputeOutput(InputLayer const& inputLayer) throw() override;
+			bool ComputeOutput(InputLayer const& inputLayer) override;
 			
 			SignalUnit GetActivationDerivative(int layerId, int neuronId) const override;
 

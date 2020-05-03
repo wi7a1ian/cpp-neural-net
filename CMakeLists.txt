@@ -33,7 +33,7 @@ set(SOURCES
 	${SRC}/Training/TrainingErrorState.cpp	
     ${SRC}/pch.cpp)
 
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/3rdParty/eigen_3.3.4")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/3rd-party/eigen")
 include_directories("${SRC}")
 
 add_library(NnsLib ${SOURCES})

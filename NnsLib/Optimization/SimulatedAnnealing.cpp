@@ -107,7 +107,7 @@ namespace NNS
 						network.Weight(i, j, k) = best_weights[i - 1][j][k];
 		}
 
-		void SimulatedAnnealing::ComputeWeightsPerturbation(IFeedforwardNetwork& network, WeightMatrix& center, ErrorUnit temperature) throw()
+		void SimulatedAnnealing::ComputeWeightsPerturbation(IFeedforwardNetwork& network, WeightMatrix& center, ErrorUnit temperature)
 		{
 			const auto networkmap = network.GetNetworkLayerMap();
 

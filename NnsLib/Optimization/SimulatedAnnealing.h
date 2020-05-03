@@ -76,7 +76,7 @@ namespace NNS
 			void ComputeWeightsPerturbation(IFeedforwardNetwork& network, WeightMatrix& center, ErrorUnit temperature);
 
 			std::mt19937 rngEngine; /**< This engine produces randomness out of thin air. */
-			std::uniform_real<ErrorUnit> rngUni01; /**< Uniform distribution in range <0;1> for random number generator. */
+			std::uniform_real_distribution<ErrorUnit> rngUni01; /**< Uniform distribution in range <0;1> for random number generator. */
 			std::uniform_int_distribution<int> rngUniInt; /**< Uniform distribution in range <0;MAX INT> for random number generator. */
 			std::normal_distribution<ErrorUnit> rngGaussian; /**< Normal (gaussian) distribution for random number generator. */
 			std::normal_distribution<ErrorUnit>::param_type* rngGaussianParams; /**< Parameters (mean, variance) for normal distribution. */

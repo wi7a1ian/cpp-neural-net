@@ -29,7 +29,7 @@ namespace NNS
 			}
 
 			std::mt19937 random_generator(static_cast<int>(time(0)));
-			std::uniform_real<WeightUnit> random01(0, 1);
+			std::uniform_real_distribution<WeightUnit> random01(0, 1);
 
 			for (int i = 1; i < networkmap.size(); ++i)  /* For each layer ( minus input layer ). */
 			{

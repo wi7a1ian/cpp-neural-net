@@ -47,7 +47,7 @@ namespace NNS
 				for (size_t j = 0; j < activationMatrix[i].size(); ++j) /* Each neuron */
 				{
 					auto& weightVect = weightMatrix[i - 1][j];
-					auto& weightVectWithoutBias = weightVect.head(prevLayer.size());
+					const auto& weightVectWithoutBias = weightVect.head(prevLayer.size());
 					auto& bias = weightVect[weightVect.size() - 1];
 
 					activationMatrix[i][j] = activationFunction(bias + prevLayer.dot(weightVectWithoutBias));

@@ -61,7 +61,7 @@ namespace NNS
 			return activationMatrix.back()[neuronId];
 		}
 
-		NetworkLayerMap FeedforwardNetworkBase::GetNetworkLayerMap() const throw()
+		NetworkLayerMap FeedforwardNetworkBase::GetNetworkLayerMap() const
 		{
 			NetworkLayerMap layers(activationMatrix.size());
 
